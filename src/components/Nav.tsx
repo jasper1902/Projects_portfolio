@@ -1,12 +1,16 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import Theme from "./Theme";
-import { useState } from "react";
 import { Link } from "react-scroll";
+import { useSelector } from "react-redux";
+import { menuSelector, updateMenu } from "../store/slice/menuSlice";
+import { useAppDispatch } from "../store/store";
 
 const Nav = () => {
-    const [nav, setNav] = useState(false)
+    const menuReducer = useSelector(menuSelector)
+    const dispatch = useAppDispatch()
+
     const handleToggleNav = () => {
-        setNav(!nav)
+        dispatch(updateMenu({ menu: !menuReducer.menu }))
     }
     return (
         <>
@@ -29,7 +33,7 @@ const Nav = () => {
             </nav>
 
 
-            {nav && <ul className='md:hidden gap-8 flex flex-col px-10 font-bold mt-14 fixed top-0 left-0 right-0 z-10 bg-opacity-80 bg-secondary backdrop-blur-md' draggable>
+            {menuReducer.menu && <ul className='md:hidden gap-8 flex flex-col px-10 font-bold mt-14 fixed top-0 left-0 right-0 z-10 bg-opacity-80 bg-secondary backdrop-blur-md' draggable>
                 <li className="p-4 border-b border-gray-700 cursor-pointer"><Link smooth={true} duration={500} to="home">Projects</Link></li>
                 <li className="p-4 border-b border-gray-700 cursor-pointer"><Link smooth={true} duration={500} to="about">About Me</Link></li>
                 <li className="p-4 border-b border-gray-700 cursor-pointer"><Link smooth={true} duration={500} to="contact">Contact</Link></li>
