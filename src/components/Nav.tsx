@@ -1,4 +1,5 @@
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaGithubSquare } from "react-icons/fa";
 import Theme from "./Theme";
 import { Link } from "react-scroll";
 import { useSelector } from "react-redux";
@@ -19,10 +20,11 @@ const Nav = () => {
                 <div className="flex justify-around items-center contianer mx-auto py-4 font-bold lg:text-2xl md:text-xl text-base lg:px-8 px-4 fixed top-0 left-0 right-0 z-10 bg-opacity-80 bg-secondary backdrop-blur-md">
                     <div>Logo</div>
 
-                    <ul className='sm:flex hidden'>
+                    <ul className='sm:flex hidden items-center'>
                         <li className="cursor-pointer hover:bg-secondary p-4 rounded-md"><Link smooth={true} duration={500} to="home">Projects</Link></li>
                         <li className="cursor-pointer hover:bg-secondary p-4 rounded-md"><Link smooth={true} duration={500} to="about">About Me</Link></li>
                         <li className="cursor-pointer hover:bg-secondary p-4 rounded-md"><Link smooth={true} duration={500} to="contact">Contact</Link></li>
+                        <li className="cursor-pointer"><a href="https://github.com/jasper1902/Projects_portfolio"><FaGithubSquare size={30}/></a></li>
                     </ul>
 
                     <div className="flex items-center gap-4">
@@ -37,7 +39,7 @@ const Nav = () => {
                 <li className="p-4 border-b border-gray-700 cursor-pointer"><Link smooth={true} duration={500} to="home">Projects</Link></li>
                 <li className="p-4 border-b border-gray-700 cursor-pointer"><Link smooth={true} duration={500} to="about">About Me</Link></li>
                 <li className="p-4 border-b border-gray-700 cursor-pointer"><Link smooth={true} duration={500} to="contact">Contact</Link></li>
-                <li className="mb-8"><Theme /></li>
+                <li className="mb-8 flex items-center gap-2"><Theme /><a href="https://github.com/jasper1902/Projects_portfolio"><FaGithubSquare size={30}/></a></li>
             </ul>}
         </>
     )

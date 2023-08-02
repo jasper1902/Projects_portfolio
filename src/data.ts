@@ -4,7 +4,6 @@ export interface DataType {
   stack: string[];
   image: string;
   projectUrl: string;
-  
 }
 
 export const data: DataType[] = [
@@ -59,5 +58,19 @@ export const data: DataType[] = [
     stack: ["typescript", "react", "tailwind", "react-typed"],
     image: "/assets/image/data-finance.png",
     projectUrl: "https://cosmic-cheesecake-5b9dd7.netlify.app/",
+  },
+  {
+    projectName: "portfolio",
+    category: "web",
+    stack: [
+      "typescript",
+      "react",
+      "tailwind",
+      "daisyui",
+      "redux-toolkit",
+      "react-scroll",
+    ],
+    image: "/assets/image/portfolio.png",
+    projectUrl: "https://portfolio-jasper.netlify.app/",
   },
 ];
