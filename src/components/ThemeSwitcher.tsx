@@ -9,7 +9,9 @@ export function ThemeSwitcher() {
   useEffect(() => {
     setMounted(true);
   }, []);
-
+  if (theme !== "dark" && theme !== "light" && !theme) {
+    localStorage.setItem("theme", "dark");
+  }
   if (!mounted) return null;
   if (!theme) return null;
 
