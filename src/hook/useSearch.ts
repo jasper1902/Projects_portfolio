@@ -1,4 +1,4 @@
-import { DataType } from "../data";
+import { DataType } from "../pages/Home";
 
 export const useSearchProject = (
   projects: DataType[],

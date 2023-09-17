@@ -1,7 +1,7 @@
-import Nav from "./components/Nav"
-import AboutMe from "./pages/AboutMe"
-import Contact from "./pages/Contact"
-import Home from "./pages/Home"
+import Nav from "./components/Nav";
+import AboutMe from "./pages/AboutMe";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <AboutMe />
       <Contact />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
