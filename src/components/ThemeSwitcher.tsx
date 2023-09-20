@@ -9,23 +9,23 @@ export function ThemeSwitcher() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  if (theme !== "dark" && theme !== "light" && !theme) {
-    localStorage.setItem("theme", "dark");
-  }
-  if (!mounted) return null;
-  if (!theme) return null;
 
-  const changeTheme = (theme: string) => {
-    if (theme === "light") {
+  useEffect(() => {
+    if (theme !== "dark" && theme !== "light") {
       setTheme("dark");
-    } else if (theme === "dark") {
-      setTheme("light");
+      localStorage.setItem("theme", "dark");
     }
+  }, [theme, setTheme]);
+
+  if (!mounted || !theme) return null;
+
+  const changeTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (
     <div>
-      <button onClick={() => changeTheme(theme)}>
+      <button onClick={changeTheme}>
         {theme === "light" ? <BsFillMoonFill /> : <BsSunFill />}
       </button>
     </div>
