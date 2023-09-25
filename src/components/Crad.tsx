@@ -20,7 +20,7 @@ const Crad = ({ image, stack, projectName, category, projectUrl }: Props) => {
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
           <Image
             className="object-cover rounded-xl"
-            src={`${import.meta.env.VITE_API_URL}${image}`}
+            src={`${import.meta.env.VITE_IMAGE_URL}${image}`}
             width={270}
           />
         </CardHeader>

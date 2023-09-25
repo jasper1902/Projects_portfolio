@@ -1,5 +1,6 @@
 import { FaGithubSquare, FaCloudDownloadAlt } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
+import CV from "../assets/ThanabodeeCV.pdf";
 
 import {
   Navbar,
@@ -57,11 +58,7 @@ const Nav = () => {
           </NavbarItem>
           <NavbarItem>
             <Button color="primary" variant="flat">
-              <NextLink
-                href={`${
-                  import.meta.env.VITE_API_URL
-                }/public/pdf/ThanabodeeCV.pdf`}
-              >
+              <NextLink href={CV}>
                 <FaCloudDownloadAlt className="mr-2" />
                 Download CV
               </NextLink>

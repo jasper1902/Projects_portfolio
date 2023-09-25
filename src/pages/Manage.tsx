@@ -2,17 +2,40 @@ import { Fragment, useEffect, useState } from "react";
 import { useSearchProject } from "../hook/useSearch";
 import { Input } from "@nextui-org/react";
 import Card from "../components/Crad";
+import { DataType } from "./Home";
+import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "@uidotdev/usehooks";
 import { fetchProject } from "../utils/fetchProject";
+const Manage = () => {
+  const [token, saveToken] = useLocalStorage("token", null);
+  const navigate = useNavigate();
 
-export interface DataType {
-  projectName: string;
-  category: string;
-  stack: string[];
-  image: string;
-  projectUrl: string;
-}
+  useEffect(() => {
+    const verifyToken = async () => {
+      if (!token) {
+        navigate("/");
+      }
 
-const Home = () => {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/user/verify`,
+        {
+          headers: { authorization: "Bearer " + token },
+        }
+      );
+      return response.status;
+    };
+
+    const checkToken = async () => {
+      const status = await verifyToken();
+      if (status !== 200) {
+        saveToken(null);
+        navigate("/");
+      }
+    };
+
+    checkToken();
+  }, [navigate, saveToken, token]);
+
   const [data, setData] = useState<DataType[] | null>(null);
   useEffect(() => {
     const fetchProjects = async () => {
@@ -31,7 +54,6 @@ const Home = () => {
   const handleOnChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
-
   return (
     <>
       <div id="home" className={`max-w-[1240px] mx-auto px-8  `}>
@@ -78,4 +100,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Manage;
