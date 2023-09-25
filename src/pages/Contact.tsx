@@ -29,7 +29,7 @@ const Contact = () => {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await fetch(`http://localhost:5000/api/contact/`, {
+    await fetch(`${import.meta.env.VITE_API_URL}/api/contact/`, {
       method: "POST",
       body: JSON.stringify(contact),
       headers: {
